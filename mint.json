@@ -1,91 +1,179 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Clave Documentation",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#00CED1",
+    "light": "#00CED1",
+    "dark": "#00CED1",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#00CED1",
+      "to": "#00CED1"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:info@clave.team"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "getclave.io",
+    "url": "https://getclave.io"
   },
-  "tabs": [
+  "tabs": [],
+  "navigation": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "group": "Clave",
+      "pages": [
+        "welcome-to-clave",
+        "about"
+      ],
+      "version": "EN"
+    },
+    {
+      "group": "Clave Guides",
+      "pages": [
+        {
+          "group": "Basics",
+          "pages": [
+            "en/how-to-create-account",
+            "how-to-fund-your-wallet-on-zksync",
+            "how-to-fund-your-wallet-from-other-chains",
+            {
+              "group": "Creating Passkeys",
+              "pages": [
+                {
+                  "group": "Android Users",
+                  "pages": [
+                    "google-password-manager",
+                    "bitwarden-android",
+                    "samsung-pass"
+                  ]
+                },
+                {
+                  "group": "Apple Users",
+                  "pages": [
+                    "icloud-keychain",
+                    "1password-apple",
+                    "bitwarden-apple",
+                    "passkey-rename"
+                  ]
+                }
+              ]
+            },
+            "custom-tokens",
+            "problem-solving"
+          ]
+        },
+        {
+          "group": "Send & Receive",
+          "pages": [
+            "how-to-send-money-via-clave",
+            "how-to-send-money-with-link",
+            "how-to-withdraw"
+          ]
+        },
+        {
+          "group": "Swap",
+          "pages": [
+            "how-to-swap-your-tokens"
+          ]
+        },
+        {
+          "group": "Earn",
+          "pages": [
+            "dex-pools",
+            "one-sided",
+            "earn-types"
+          ]
+        },
+        {
+          "group": "Account Security/Management",
+          "pages": [
+            "how-to-assign-guardians",
+            "how-to-recover-clave",
+            "how-to-recover-eoa",
+            "how-to-cancel-your-recovery",
+            "remove-guardian"
+          ]
+        },
+        {
+          "group": "Wallet Connect Connections",
+          "pages": [
+            "wc-connect",
+            "wc-sessions"
+          ]
+        },
+        {
+          "group": "Split",
+          "pages": [
+            "how-split-works",
+            "split-use",
+            "pay-debts"
+          ]
+        }
+      ],
+      "version": "EN"
+    },
+    {
+      "group": "Clave Technical Explainers",
+      "pages": [
+        "technical-introduction",
+        "zksync-aa-explainer",
+        {
+          "group": "Clave's Key Management System",
+          "pages": [
+            "clave-key-management",
+            {
+              "group": "Passkey Signer",
+              "pages": [
+                "passkeys-technical",
+                "secure-enclave-technical"
+              ]
+            },
+            {
+              "group": "Recovery Mechanisms",
+              "pages": [
+                "recovery-technical",
+                "zkemail-recovery-technical"
+              ]
+            }
+          ]
+        },
+        "clave-ens-subname"
+      ],
+      "version": "EN"
     }
+  ],
+  "versions": [
+    "EN",
+    "TR"
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+      "url": "https://blog.getclave.io"
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+      "name": "X (Twitter)",
+      "icon": "twitter",
+      "url": "https://x.com/getclave"
     },
     {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/getclave"
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://x.com/getclave",
+    "github": "https://github.com/getclave",
+    "linkedin": "https://www.linkedin.com/company/getclave"
   }
 }
