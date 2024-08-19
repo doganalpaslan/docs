@@ -44,11 +44,11 @@ The journey starts when a user decides to generate a cryptographic key pair. Her
 ![Passkey's Technical Explainer](./images/passkeytechnical1.png)
 ### The Transaction Process
 
-Once the key is securely generated, it can be used to sign messages, a fundemental step for initiating transactions in the Web3 world. The process is straightforward yet robust:
+Once the key is securely generated, it can be used to sign messages, a fundamental step for initiating transactions in the Web3 world. The process is straightforward yet robust:
 
 1. Initiating the Signing Process: When a user wishes to make a transaction, the app takes the required message and forwards a signing request to the Secure Enclave.
 2. Biometric Authentication for Signing: To confirm the signing request, the user provides biometric authentication once again. This step ensures that only the authorized user can approve the signing of a message using the stored key.
-3. Internal Message Signing: The Secure Enclave, upon receiving user authorization, signs the message with key that created inside the Secure Enclave.
+3. Internal Message Signing: The Secure Enclave, upon receiving user authorization, signs the message with the key created inside the Secure Enclave.
 4. Ready for the Blockchain: The signed message is now in a transaction format, primed and ready to be recorded on the blockchain.
 ![Passkey's Technical Explainer](./images/passkeytechnical2.png)
 
