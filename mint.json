@@ -124,7 +124,8 @@
           ],
           "version": "EN"
         }
-      ]
+      ],
+      "version": "EN"
     },
     {
       "group": "Clave Technical Explainers",
@@ -164,19 +165,19 @@
       "version": "TR"
     },
     {
-      "group": "Clave Guides",
+      "group": "Clave Rehberleri",
       "pages": [
         {
-          "group": "Basics",
+          "group": "Temel Bilgiler",
           "pages": [
             "tr/how-to-create-account",
             "tr/how-to-fund-your-wallet-on-zksync",
             "tr/how-to-fund-your-wallet-from-other-chains",
             {
-              "group": "Creating Passkeys",
+              "group": "Passkey Oluşturma",
               "pages": [
                 {
-                  "group": "Android Users",
+                  "group": "Android Kullanicilari",
                   "pages": [
                     "tr/google-password-manager",
                     "tr/bitwarden-android",
@@ -184,7 +185,7 @@
                   ]
                 },
                 {
-                  "group": "Apple Users",
+                  "group": "Apple Kullanicilari",
                   "pages": [
                     "tr/icloud-keychain-tr",
                     "tr/1password-apple",
@@ -200,7 +201,7 @@
           "version": "TR"
         },
         {
-          "group": "Send & Receive",
+          "group": "Para Gönderip Alma",
           "pages": [
             "tr/how-to-send-money-via-clave",
             "tr/how-to-send-money-with-link",
@@ -209,14 +210,14 @@
           "version": "TR"
         },
         {
-          "group": "Swap",
+          "group": "Takas Yapma",
           "pages": [
             "tr/how-to-swap-your-tokens"
           ],
           "version": "TR"
         },
         {
-          "group": "Earn",
+          "group": "Yatirim",
           "pages": [
             "tr/dex-pools",
             "tr/one-sided",
@@ -225,7 +226,7 @@
           "version": "TR"
         },
         {
-          "group": "Account Security/Management",
+          "group": "Hesap Güvenliği ve Yönetimi",
           "pages": [
             "tr/how-to-assign-guardians",
             "tr/how-to-recover-clave",
@@ -236,7 +237,7 @@
           "version": "TR"
         },
         {
-          "group": "Wallet Connect Connections",
+          "group": "Wallet Connect Baglantileri",
           "pages": [
             "tr/wc-connect",
             "tr/wc-sessions"
@@ -244,7 +245,7 @@
           "version": "TR"
         },
         {
-          "group": "Split",
+          "group": "Harcama Bolusturme",
           "pages": [
             "tr/how-split-works",
             "tr/split-use",
@@ -252,26 +253,27 @@
           ],
           "version": "TR"
         }
-      ]
+      ],
+      "version": "TR"
     },
     {
-      "group": "Clave Technical Explainers",
+      "group": "Clave'in Teknik Açiklamalari",
       "pages": [
         "tr/technical-introduction",
         "tr/zksync-aa-explainer",
         {
-          "group": "Clave's Key Management System",
+          "group": "Clave'in Anahtar Saklama Yöntemleri",
           "pages": [
             "tr/clave-key-management",
             {
-              "group": "Passkey Signer",
+              "group": "Passkey Imzalama Sistemi",
               "pages": [
                 "tr/passkeys-technical",
                 "tr/secure-enclave-technical"
               ]
             },
             {
-              "group": "Recovery Mechanisms",
+              "group": "Kurtarma Yöntemleri",
               "pages": [
                 "tr/recovery-technical",
                 "tr/zkemail-recovery-technical"

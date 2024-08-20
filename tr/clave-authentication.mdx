@@ -1,73 +1,74 @@
 ---
-title: "How Does Clave's Authentication Mechanism Work?"
-description: 'An introduction to passkeys and how Clave utilizes it.'
+title: "Clave'in Kimlik Doğrulama Mekanizması Nasıl Çalışır?"
+description: "Passkeyler ve Clave'nin bunları nasıl kullandığına bir giriş."
 ---
 
 
-## Understanding Ownership in the Digital Age: Web2 vs. Web3 & The Role of Passkey Signer
 
-The concept of 'ownership' on the internet has transformed dramatically over the years, particularly with the evolution from Web2 to Web3. Let's dissect this transformation and discuss how cutting-edge technologies like Secure Enclaves are reshaping our understanding of digital identity and security.
+## Dijital Çağda Sahipliği Anlamak: Web2 ile Web3'ün karşılaştırılması & Passkey Imzacısının Rolü
 
-### Ownership in Web2
+İnternetteki 'sahiplik' kavramı, özellikle Web2'den Web3'e geçişle birlikte yıllar içinde dramatik bir şekilde değişti. Bu dönüşümü inceleyelim ve Secure Enclave gibi ileri teknolojilerin dijital kimlik ve güvenlik anlayışımızı nasıl yeniden şekillendirdiğini tartışacağız.
 
-Web2, the second iteration of the internet, primarily focuses on user-generated content and the rise of social media platforms. In the Web2 era, digital ownership operates largely through a centralized, service provider-centric model. Here's how it typically flows:
+### Web2'de Sahiplik
 
-- Users present proof of their account to a service provider, such as iCloud or Gmail.
-- The service provider verifies the user's identity.
-- Once authenticated, this identity is then conveyed to various apps or platforms that the user wishes to access.
+İnternetin ikinci evresi olan Web2, esas olarak kullanıcı tarafından oluşturulan içerik ve sosyal medya platformlarının yükselişine odaklanır. Web2 çağında, dijital mülkiyet büyük ölçüde merkezi, hizmet sağlayıcı odaklı bir model üzerinden işler. İşleyiş genellikle şu şekildedir:
+
+- Kullanıcılar, iCloud veya Gmail gibi bir hizmet sağlayıcıya hesaplarına ilişkin kanıt sunarlar.
+- Hizmet sağlayıcı, kullanıcının kimliğini doğrular.
+- Kimlik doğrulandıktan sonra, bu kimlik kullanıcının erişmek istediği çeşitli uygulamalara veya platformlara iletilir.
 ![Web2](images/meet1.png)
 
-This centralized model boasts a significant advantage: the ease with which users can recover their accounts and easily access their accounts. However, this convenience comes at a cost. The entire system hinges on the trustworthiness of the middleman – the service provider. This significant trust assumption represents a potential vulnerability, prompting the shift towards the decentralized, cryptographic key-based identity verification seen in Web3.
+Bu merkezi modelin önemli bir avantajı vardır: Kullanıcıların hesaplarını geri almalarının ve hesaplarına kolayca erişmelerinin kolaylığı. Ancak, bu kolaylık bir dezavantajla gelir. Tüm sistem, aracı olan hizmet sağlayıcısının güvenilirliğine dayanır. Bu önemli güven varsayımı, Web3'te görülen merkeziyetsiz, kriptografik anahtar tabanlı kimlik doğrulama modeline geçişi teşvik eder.
 
-### Ownership in Web3: A Decentralized Trustless Paradigm
+### Web3'te Sahiplik: Merkeziyetsiz, Matematiğe Dayanan Paradigma
 
-In the evolution of the digital realm, Web3 stands out as a transformative chapter that seeks to redefine the essence of online ownership. Fundamentally, Web3 is designed to be trustless, meaning users shouldn't have to rely on third-party intermediaries or "middlemen" to assert their ownership or identity online.
+Dijital dünyanın evriminde, Web3 çevrimiçi sahipliğin özünü yeniden tanımlamayı amaçlayan dönüştürücü bir bölüm olarak öne çıkıyor. Temelde, Web3 herhangi bir aracıya güvene ihtiyaç duymadan çalışacak şekilde tasarlanmıştır, yani kullanıcılar çevrimiçi sahipliklerini veya kimliklerini doğrulamak için üçüncü taraf aracılara veya "aracılara" güvenmek zorunda kalmamalıdır.
 
-Central to the trustless nature of Web3 is Elliptic Curve Cryptography (ECC). ECC allows users to prove their identity without the need for a middleman. It provides strong security while using shorter codes, making it ideal for Web3's decentralized platforms. One of the most evident manifestations of ECC in the Web3 environment is the 12-word mnemonic phrase often required to access a user's account. These words, derived from their cryptographic keys, act as a passphrase to their digital wallets or accounts.
+Web3'ün matematiğe dayanan doğasının merkezinde Eliptik Eğri Kriptografisi (ECC) yer alır. ECC, kullanıcıların kimliklerini bir aracıya ihtiyaç duymadan kanıtlamalarına olanak tanır. Web3 ortamında ECC'nin en belirgin tezahürlerinden biri, bir kullanıcının hesabına erişmek için genellikle gereken 12 kelimelik anımsatıcı cümledir. Bu kelimeler, kriptografik anahtarlarından türetilir ve dijital cüzdanlarına veya hesaplarına erişim sağlamak için bir parola görevi görür.
 
-However, this innovation doesn't come without its challenges. The responsibility of safeguarding these 12 words lies solely with the user. Losing one's 12-word phrase in the Web3 ecosystem could mean permanent loss of access to one's digital assets and identity.
+Ancak, bu yenilik zorlukları beraberinde getirir. Bu 12 kelimeyi koruma sorumluluğu tamamen kullanıcıya aittir. Web3 ekosisteminde birinin 12 kelimelik cümlesini kaybetmesi, dijital varlıklarına ve kimliğine kalıcı olarak erişim kaybı anlamına gelebilir.
 
-### A New Paradigm to Prove Identity in Web3: Hardware Secured Signing - Passkeys
+### Web3'te Kimliği Kanıtlama İçin Yeni Bir Paradigma: Özel Donanım ile Güvenli İmza - Passkeyler
 
-As Web3 reshapes the digital landscape, introducing decentralized and trustless operations, there's an emerging need for heightened security measures. Enter the concept of Hardware Sign, an innovative approach that promises to take digital identity verification to new heights.
+Web3, merkeziyetsiz ve güvensiz operasyonları tanıtırken dijital manzarayı yeniden şekillendirirken, gelişmiş güvenlik önlemleri için artan bir ihtiyaç doğuyor. İşte bu noktada, dijital kimlik doğrulamasını yeni zirvelere taşımayı vaat eden yenilikçi bir yaklaşım olan Donanım İmzası kavramı devreye giriyor. Donanım (veya bir başka deyişle Passkey) imzasının ana özelliği Secure Enclave denen bir donanıma dayanmasıdır.
 
-#### Understanding the Secure Enclave
+#### Secure Enclave'ı Anlamak
 
-The Secure Enclave is an advanced hardware feature, specifically designed to act as a protective shield around users' most sensitive data. Unlike other parts of a device, which might handle everything from app processes to notifications, the Secure Enclave is a distinct microchip, isolated from all other components of the device. This separation ensures that sensitive data, such as biometric information and cryptographic keys, are isolated from potential threats.
+Secure Enclave, kullanıcıların en hassas verilerini korumak için özel olarak tasarlanmış gelişmiş özel bir işlemcidir. Bir cihazın diğer bölümleri, uygulama süreçlerinden bildirimlere kadar her şeyi işleyebilirken, Secure Enclave, cihazın diğer bileşenlerinden izole edilmiş ayrı bir mikroçiptir. Bu ayrım, biyometrik bilgiler ve kriptografik anahtarlar gibi hassas verilerin potansiyel tehditlerden izole edilmesini sağlar.
 
-#### Accessing the Secure Enclave
+#### Secure Enclave'a Erişim
 
-Data stored within the Secure Enclave can only be accessed through either a passcode or biometric authentication methods like Face ID or Touch ID. This adds an extra layer of security, ensuring that even if a device is lost or stolen, the data within the Secure Enclave remains protected.
+Secure Enclave içinde saklanan verilere yalnızca bir şifre veya Face ID ya da Touch ID gibi biyometrik kimlik doğrulama yöntemleriyle erişilebilir. Bu, cihaz kaybolsa veya çalınsa bile Secure Enclave içindeki verilerin korunmasını sağlayarak ek bir güvenlik katmanı ekler.
 
-### Integrating Secure Enclave into Web3
+### Secure Enclave'ı Web3'e Entegre Etmek
 
-Perhaps the most groundbreaking feature of the Secure Enclave, especially in the realm of Web3, is its support for Elliptic Curve Cryptography (ECC). This means that the Secure Enclave can generate and manage cryptographic key pairs, crucial for digital transactions and identity verification in the Web3 ecosystem.
+Özellikle Web3 alanında, Secure Enclave'ın en yenilikçi özelliklerinden biri Eliptik Eğri Kriptografisi (ECC) desteğidir. Bu, Secure Enclave'ın kriptografik anahtar çiftlerini oluşturabileceği ve yönetebileceği anlamına gelir, bu da Web3 ekosisteminde dijital işlemler ve kimlik doğrulama için çok önemlidir.
 
-Even more impressive is the capability of the Secure Enclave to sign messages using the internally generated key, without ever allowing the extraction of the key from its confines. For Web3 users, this has profound implications. Instead of remembering a 12-word mnemonic phrase to access their accounts, users can simply use their biometric data.
+Daha da etkileyici olan, Secure Enclave'ın içsel olarak oluşturulan anahtarı, anahtarın kendi sınırlarından çıkarılmasına izin vermeden mesajları imzalama yeteneğidir. Web3 kullanıcıları için bu derin etkiler taşır. Hesaplarına erişmek için 12 kelimelik bir anımsatıcı cümleyi hatırlamak yerine, kullanıcılar sadece biyometrik verilerini kullanabilir.
 
-### Our Key Management Approach
+### Anahtar Saklama Yaklaşımımız
 
-#### Our Key Management System with Secure Enclaves
+#### Secure Enclave ile Anahtar Yönetim Sistemimiz
 
-At the core of our approach is the utilization of Secure Enclaves. The cryptographic key, essential for your transactions, is generated within this enclave and importantly, it never leaves its confines. This encapsulation ensures the key's security even during transaction processes.
+Yaklaşımımızın merkezinde Secure Enclave'ın kullanımı yer alır. İşlemleriniz için gerekli olan kriptografik anahtar, bu enclave içinde oluşturulur ve önemlisi, asla bu sınırların dışına çıkmaz. Bu kapsülleme, anahtarın işlem süreçleri sırasında bile güvenliğini sağlar.
 
-#### The Key Creation Process
+#### Anahtar Oluşturma Süreci
 
-The journey starts when a user decides to generate a cryptographic key pair:
+Süreç, bir kullanıcı kriptografik anahtar çifti oluşturmaya çalıştığında başlar:
 
-1. **Biometric Authentication**: The user initiates the key generation process by providing biometric authentication, such as a fingerprint or facial recognition.
-2. **Internal Key Generation**: Post authentication, the Secure Enclave creates the cryptographic key pair. The generated key remains within the Secure Enclave, never venturing outside, ensuring its absolute security.
+1. **Biyometrik Kimlik Doğrulama**: Kullanıcı, parmak izi veya yüz tanıma gibi biyometrik kimlik doğrulama sağlayarak anahtar oluşturma sürecini başlatır.
+2. **Anahtar Oluşturma**: Kimlik doğrulamanın ardından, Secure Enclave kriptografik anahtar çiftini oluşturur. Oluşturulan anahtar Secure Enclave içinde kalır ve asla dışarı çıkmaz, bu da onun mutlak güvenliğini sağlar.
 
-#### The Transaction Process
+#### İşlem Imzalama Süreci
 
-Once the key is securely generated, it can be used to sign messages, a fundamental step for initiating transactions in the Web3 world:
+Anahtar güvenli bir şekilde oluşturulduktan sonra, Web3 dünyasında işlemleri başlatmak için temel bir adım olan mesajları imzalamak için kullanılabilir:
 
-1. **Initiating the Signing Process**: When a user wishes to make a transaction, the app takes the required message and forwards a signing request to the Secure Enclave.
-2. **Biometric Authentication for Signing**: To confirm the signing request, the user provides biometric authentication once again.
-3. **Internal Message Signing**: The Secure Enclave, upon receiving user authorization, signs the message with the key created inside the Secure Enclave.
-4. **Ready for the Blockchain**: The signed message is now in a transaction format, ready to be recorded on the blockchain.
+1. **İmzalama Sürecini Başlatma**: Kullanıcı bir işlem yapmak istediğinde, uygulama gerekli mesajı alır ve bir imzalama isteğini Secure Enclave'a iletir.
+2. **İmzalama İçin Biyometrik Kimlik Doğrulama**: İmzalama isteğini onaylamak için kullanıcı tekrar biyometrik kimlik doğrulama sağlar.
+3. **İçsel Mesaj İmzalama**: Secure Enclave, kullanıcı yetkilendirmesini aldıktan sonra mesajı Secure Enclave içinde oluşturulan anahtar ile imzalar.
+4. **Blokzincir İçin Hazır**: İmzalanan mesaj, şimdi blokzincirde kaydedilmeye hazır bir işlem formatındadır.
 ![secure](images/meet2.png)
 
-### What If The User Loses The Device?
+### Kullanıcı Cihazını Kaybederse Ne Olur?
 
-With Secure Enclave, even if your device falls into the wrong hands, accessing sensitive information is next to impossible. Recovering your account is possible, and we will dive into our recovery approach in the [next section](social-recovery)
+Secure Enclave ile, cihazınız yanlış ellere düşse bile hassas bilgilere erişmek neredeyse imkansızdır. Hesabınızı kurtarmak mümkündür ve  bir sonraki bölümde kurtarma yaklaşımımıza değineceğiz.

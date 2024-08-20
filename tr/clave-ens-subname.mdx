@@ -1,59 +1,58 @@
 ---
-title: 'Clave Onchain Usernames with ENS / clv.eth'
-description: "Clave Has Implemented ENS Protocol's Subnames to Make Clave Usernames Onchain. To Achieve This, Clave Has Developed a Storage Proof Library and Integrated It With CCIP Read."
+title: 'ENS ile Desteklenen Clave Onchain Kullanıcı Adları / clv.eth'
+description: "Clave, Clave Kullanıcı Adlarını Zincir Üstüne taşımak için ENS Protokolü'nün Subname'lerini Entegre Etti. Bunu Mümkün Kılmak İçin Clave, Bir Depolama Kanıtı Kütüphanesi Geliştirdi ve Bunu CCIP Read ile Entegre Etti."
 ---
-The Ethereum Name Service (ENS) is a decentralized, open, and extensible naming system built on the Ethereum blockchain. ENS translates human-readable names like 'alice.eth' into machine-readable identifiers, such as Ethereum addresses, other cryptocurrency addresses, content hashes, metadata, and more. It also offers 'reverse resolution,' allowing Ethereum addresses to be associated with metadata like primary names or interface descriptions.
+Ethereum Name Service (ENS), Ethereum blokzinciri üzerine inşa edilmiş merkeziyetsiz, açık ve genişletilebilir bir adlandırma sistemidir. ENS, 'alice.eth' gibi insan tarafından okunabilir adları Ethereum adresleri, diğer kripto para adresleri, içerik hash'leri, meta veriler ve daha fazlası gibi makine tarafından okunabilir tanımlayıcılara dönüştürür. Ayrıca, Ethereum adreslerinin birincil adlar veya arayüz açıklamaları gibi meta verilerle ilişkilendirilmesine olanak tanıyan 'ters çözümleme' özelliği de sunar.
 
-Top-Level Domains (TLDs) such as .eth and .test are managed by smart contracts known as registrars. These registrars define the rules for allocating names within their domains, ensuring seamless compatibility with the Domain Name System (DNS).
+.eth ve .test gibi Üst Düzey Alan Adları (TLD'ler), kayıtçılar olarak bilinen akıllı sözleşmeler tarafından yönetilir. Bu kayıtçılar, alan adları içinde isimlerin tahsisi için kuralları tanımlar ve Alan Adı Sistemi (DNS) ile sorunsuz uyumluluk sağlar.
 
-When users register a name, they are typically registering a second-level domain (2LD) under the .eth TLD—such as 'clv.eth'. ENS names can also generate subdomains; for example, 'clv.eth' can create 'dogan.clv.eth'.
+Kullanıcılar bir ad kaydettirdiğinde, genellikle .eth TLD'si altında bir ikinci düzey alan adı (2LD) kaydettirirler—örneğin, 'clv.eth'. ENS adları ayrıca alt alan adları oluşturabilir; örneğin, 'clv.eth', 'dogan.clv.eth' oluşturabilir.
 
-**CCIP-Read (ERC-3668)** enables data retrieval from any source using a client-side method. This feature is particularly useful for cross-chain and off-chain subname resolvers. While the core ENS protocol operates on Ethereum, CCIP-Read provides the flexibility to extend subnames to off-chain environments and rollups, broadening the scope of ENS functionality beyond the Ethereum blockchain.
+**CCIP-Read (ERC-3668)**, verilerin herhangi bir kaynaktan istemci tarafında bir yöntem kullanılarak alınmasını sağlar. Bu özellik, özellikle zincirler arası ve zincir dışı subname çözümleyicileri için kullanışlıdır. Temel ENS protokolü Ethereum üzerinde çalışırken, CCIP-Read, subname'lerin zincir dışı ortamlar ve rollup'lar ile genişletilmesine esneklik sağlar ve ENS işlevselliğini Ethereum blokzincirinin ötesine genişletir.
 
-If an ENS subname lives on an Ethereum rollup and aims to maintain trustlessness, the CCIP solution necessitates storage proofs. These proofs validate that the subname exists onchain and that the resolver calculation is accurate. This ensures that the integrity of the subname's data is preserved, even when operating in off-chain environments, by providing cryptographic proof that the subname's state is a part of the rollup's state root that lives on Ethereum. 
+Eğer bir ENS subname'i bir Ethereum rollup'ı üzerinde yaşıyorsa ve güvenilmezliği korumayı hedefliyorsa, CCIP çözümü depolama kanıtları gerektirir. Bu kanıtlar, subname'in onchain olarak var olduğunu ve çözümleyici hesaplamasının doğru olduğunu doğrular. Bu, subname'in durum kökünün Ethereum'da yaşayan rollup'ın bir parçası olduğuna dair kriptografik kanıt sağlayarak, verilerin güvenilirliğini zincir dışı ortamlarda bile korur.
 
-## Overview of ZKsync's Storage Proofs
-ZKsync is a layer-2 scaling solution for Ethereum, designed to increase transaction throughput and reduce fees while maintaining the security and decentralization of the Ethereum network. It operates as a rollup that posts state roots and Zero Knowledge proofs to Ethereum, ensuring the integrity of computations performed on ZKsync. Although ZKsync is an EVM-compatible blockchain, it uses a different hashing method called Blake2, which differs from Ethereum's SHA-256 hashing algorithm.
+## ZKsync'in Depolama Kanıtlarının Genel Görünümü
+ZKsync, Ethereum için bir katman-2 ölçeklendirme çözümüdür ve işlem hacmini artırırken ve ücretleri düşürürken Ethereum ağının güvenliği ve merkeziyetsizliğini korur. ZKsync, hesap durum köklerini ve Zero Knowledge kanıtlarını Ethereum'a göndererek işlemlerin bütünlüğünü sağlar. ZKsync, EVM uyumlu bir blokzincir olmasına rağmen, Ethereum'un SHA-256 hashing algoritmasından farklı olan Blake2 adlı bir hashing yöntemi kullanır.
 ![Merkle Patricia Tree](./images/stateproof2.png)
-Ethereum uses a specialized Merkle tree method called the Merkle Patricia tree, which enables anyone to generate storage proofs that verify a specific piece of storage is part of the state root and is valid. This allows us to prove that data on a rollup is authentic and integrated into the rollup's state on Ethereum. This is similar for ZKsync, but with a key difference: the hashing method. To prove a storage slot on ZKsync, you need to use the Blake2 algorithm. 
+Ethereum, Merkle Patricia ağacı adı verilen özel bir Merkle ağacı yöntemini kullanır, bu da herhangi birinin belirli bir depolama parçasının durum kökünün bir parçası olduğunu ve geçerli olduğunu doğrulayan depolama kanıtları oluşturmasına olanak tanır. Bu, bir rollup üzerindeki verilerin gerçek olduğunu ve Ethereum'daki rollup'ın durumuna entegre olduğunu kanıtlamamıza olanak tanır. Bu ZKsync için de benzerdir, ancak önemli bir farkla: hashing yöntemi. ZKsync üzerindeki bir depolama slotunu kanıtlamak için Blake2 algoritmasını kullanmanız gerekir.
 ![Merkle Patricia Tree](./images/stateproof1.png)
-Clave utilizes storage slots at CCIP read, to explain it let's look at how CCIP works at a fundamental level. 
+Clave, CCIP okumasında depolama slotlarını kullanır, bunu açıklamak için CCIP'nin temel düzeyde nasıl çalıştığına bir göz atalım.
 
-The Cross Chain Interoperability Protocol (CCIP Read) is a client-side protocol designed to facilitate off-chain data retrieval in a secure and decentralized manner. It introduces the `OffchainLookup` error, which acts as a trigger for the client to handle specific off-chain data requests.
+Zincirler Arası Etkileşim Protokolü (CCIP Read), zincir dışı veri alımını güvenli ve merkeziyetsiz bir şekilde kolaylaştırmak için tasarlanmış bir istemci tarafı protokoldür. Bu protokol, istemcinin belirli zincir dışı veri isteklerini işlemesi için tetikleyici olarak hareket eden `OffchainLookup` hatasını tanıtır.
 
-When the client encounters the `OffchainLookup` error, it responds by calling a specified gateway URL, which in this case is the Clave Gateway. The Clave Gateway then provides a storage proof for the requested subname. The client subsequently verifies this proof, ensuring that the subname data is authentic and trustless. This mechanism makes Clave subnames trustless by design.
+İstemci `OffchainLookup` hatasıyla karşılaştığında, belirtilen bir ağ geçidi URL'sini çağırarak yanıt verir, bu durumda Clave Gateway'dir. Clave Gateway daha sonra istenen subname için bir depolama kanıtı sağlar. İstemci bu kanıtı doğrulayarak subname verilerinin güvenilir ve güvenilmez olduğunu garanti eder. Bu mekanizma, Clave subname'lerini tasarım gereği güvenilmez hale getirir.
 
-Here’s the `OffchainLookup` error definition:
+İşte `OffchainLookup` hatası tanımı:
 
 ```
 error OffchainLookup(
     address sender,
-    string[] urls,// Calls the Clave Gateway
+    string[] urls,// Clave Gateway'i çağırır
     bytes callData,
     bytes4 callbackFunction,
     bytes extraData
 );
 ```
-to learn more, you can check [ENS's website:](https://docs.ens.domains/resolvers/ccip-read)
+daha fazla bilgi edinmek için [ENS'nin web sitesini](https://docs.ens.domains/resolvers/ccip-read) inceleyebilirsiniz.
 
-However, clients have a gas limit of 30 million, while existing Blake2 Solidity verifiers consumed around 1 billion gas, rendering our method impractical. To overcome this limitation, we developed a library with ENS that performs the Blake2 hashing algorithm efficiently, keeping gas consumption under the 30 million gas limit.
+Ancak, istemcilerin 30 milyon gaz sınırı vardır, oysa mevcut Blake2 Solidity doğrulayıcıları yaklaşık 1 milyar gaz tüketiyordu, bu da yöntemimizi pratik hale getirmiyordu. Bu sınırlamanın üstesinden gelmek için, ENS ile birlikte Blake2 hashing algoritmasını verimli bir şekilde gerçekleştiren ve gaz tüketimini 30 milyon gaz sınırının altında tutan bir kütüphane geliştirdik.
 
-### The current flow for resolving a Clave Username is as follows:
+### Clave Kullanıcı Adını Çözme Sürecinin Mevcut Akışı Şu Şekildedir:
 
-1. An application queries the Ethereum client for the address associated with `dogan.clv.eth`.
-2. The Ethereum client calls the Clave Gateway for a proof.
-3. The Clave Gateway provides a storage proof and the necessary data to prove the name on-chain.
-4. The Ethereum client simulates the proof and returns the corresponding `0x` address to the application.
+1. Bir uygulama, `dogan.clv.eth` ile ilişkilendirilen adres için Ethereum istemcisine sorgu gönderir.
+2. Ethereum istemcisi, bir kanıt için Clave Gateway'i çağırır.
+3. Clave Gateway, zincir üzerinde adı kanıtlamak için gerekli olan verileri ve depolama kanıtını sağlar.
+4. Ethereum istemcisi kanıtı simüle eder ve uygulamaya karşılık gelen `0x` adresini döndürür.
 
-This process is completely trustless and incurs zero fees!
+Bu süreç tamamen güvenilmezdir ve sıfır ücret içerir!
 ![Merkle Patricia Tree](./images/stateproof4.png)
 
+## ZKsync'te İsimleri Nasıl Saklıyoruz
 
-## How We Store Names on ZKsync
+ENS protokolünün temelinden büyük ilham aldık ve Clave kullanıcı adlarını değiştirilemez, merkeziyetsiz ve ücretsiz hale getirmeye karar verdik. Clave kullanıcı adları Clave adreslerine özgüdür ve bir kullanıcı adı zincir üzerinde kaydedildiğinde, ne kullanıcı ne de Clave tarafından değiştirilemez.
 
-We drew significant inspiration from the core ENS protocol and decided to make Clave usernames immutable, decentralized, and free. Clave usernames are unique to Clave addresses, and once a username is registered onchain, it cannot be changed - even by the user or by Clave.
-
-Clave usernames are non-transferable and immutable, ensuring their uniquness for users. 
+Clave kullanıcı adları devredilemez ve değiştirilemez, bu da kullanıcılar için benzersizliğini sağlar.
 
 ```solidity
 function _beforeTokenTransfer(address from, address to, uint256) internal view override {
