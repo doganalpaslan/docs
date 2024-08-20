@@ -68,8 +68,7 @@
             },
             "en/custom-tokens",
             "en/problem-solving"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Send & Receive",
@@ -77,15 +76,13 @@
             "en/how-to-send-money-via-clave",
             "en/how-to-send-money-with-link",
             "en/how-to-withdraw"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Swap",
           "pages": [
             "en/how-to-swap-your-tokens"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Earn",
@@ -93,8 +90,7 @@
             "en/dex-pools",
             "en/one-sided",
             "en/earn-types"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Account Security/Management",
@@ -104,16 +100,14 @@
             "en/how-to-recover-eoa",
             "en/how-to-cancel-your-recovery",
             "en/remove-guardian"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Wallet Connect Connections",
           "pages": [
             "en/wc-connect",
             "en/wc-sessions"
-          ],
-          "version": "EN"
+          ]
         },
         {
           "group": "Split",
@@ -121,10 +115,10 @@
             "en/how-split-works",
             "en/split-use",
             "en/pay-debts"
-          ],
-          "version": "EN"
+          ]
         }
-      ]
+      ],
+      "version": "EN"
     },
     {
       "group": "Clave Technical Explainers",
@@ -158,8 +152,8 @@
     {
       "group": "Clave",
       "pages": [
-        "tr/welcome-to-clave",
-        "tr/about"
+        "en/welcome-to-clave",
+        "en/about"
       ],
       "version": "TR"
     },
@@ -169,117 +163,111 @@
         {
           "group": "Basics",
           "pages": [
-            "tr/how-to-create-account",
-            "tr/how-to-fund-your-wallet-on-zksync",
-            "tr/how-to-fund-your-wallet-from-other-chains",
+            "en/how-to-create-account",
+            "en/how-to-fund-your-wallet-on-zksync",
+            "en/how-to-fund-your-wallet-from-other-chains",
             {
               "group": "Creating Passkeys",
               "pages": [
                 {
                   "group": "Android Users",
                   "pages": [
-                    "tr/google-password-manager",
-                    "tr/bitwarden-android",
-                    "tr/samsung-pass"
+                    "en/google-password-manager",
+                    "en/bitwarden-android",
+                    "en/samsung-pass"
                   ]
                 },
                 {
                   "group": "Apple Users",
                   "pages": [
-                    "tr/icloud-keychain-tr",
-                    "tr/1password-apple",
-                    "tr/bitwarden-apple",
-                    "tr/passkey-rename"
+                    "en/icloud-keychain",
+                    "en/1password-apple",
+                    "en/bitwarden-apple",
+                    "en/passkey-rename"
                   ]
                 }
               ]
             },
-            "tr/custom-tokens",
-            "tr/problem-solving"
-          ],
-          "version": "TR"
+            "en/custom-tokens",
+            "en/problem-solving"
+          ]
         },
         {
           "group": "Send & Receive",
           "pages": [
-            "tr/how-to-send-money-via-clave",
-            "tr/how-to-send-money-with-link",
-            "tr/how-to-withdraw"
-          ],
-          "version": "TR"
+            "en/how-to-send-money-via-clave",
+            "en/how-to-send-money-with-link",
+            "en/how-to-withdraw"
+          ]
         },
         {
           "group": "Swap",
           "pages": [
-            "tr/how-to-swap-your-tokens"
-          ],
-          "version": "TR"
+            "en/how-to-swap-your-tokens"
+          ]
         },
         {
           "group": "Earn",
           "pages": [
-            "tr/dex-pools",
-            "tr/one-sided",
-            "tr/earn-types"
-          ],
-          "version": "TR"
+            "en/dex-pools",
+            "en/one-sided",
+            "en/earn-types"
+          ]
         },
         {
           "group": "Account Security/Management",
           "pages": [
-            "tr/how-to-assign-guardians",
-            "tr/how-to-recover-clave",
-            "tr/how-to-recover-eoa",
-            "tr/how-to-cancel-your-recovery",
-            "tr/remove-guardian"
-          ],
-          "version": "TR"
+            "en/how-to-assign-guardians",
+            "en/how-to-recover-clave",
+            "en/how-to-recover-eoa",
+            "en/how-to-cancel-your-recovery",
+            "en/remove-guardian"
+          ]
         },
         {
           "group": "Wallet Connect Connections",
           "pages": [
-            "tr/wc-connect",
-            "tr/wc-sessions"
-          ],
-          "version": "TR"
+            "en/wc-connect",
+            "en/wc-sessions"
+          ]
         },
         {
           "group": "Split",
           "pages": [
-            "tr/how-split-works",
-            "tr/split-use",
-            "tr/pay-debts"
-          ],
-          "version": "TR"
+            "en/how-split-works",
+            "en/split-use",
+            "en/pay-debts"
+          ]
         }
-      ]
+      ],
+      "version": "TR"
     },
     {
       "group": "Clave Technical Explainers",
       "pages": [
-        "tr/technical-introduction",
-        "tr/zksync-aa-explainer",
+        "en/technical-introduction",
+        "en/zksync-aa-explainer",
         {
           "group": "Clave's Key Management System",
           "pages": [
-            "tr/clave-key-management",
+            "en/clave-key-management",
             {
               "group": "Passkey Signer",
               "pages": [
-                "tr/passkeys-technical",
-                "tr/secure-enclave-technical"
+                "en/passkeys-technical",
+                "en/secure-enclave-technical"
               ]
             },
             {
               "group": "Recovery Mechanisms",
               "pages": [
-                "tr/recovery-technical",
-                "tr/zkemail-recovery-technical"
+                "en/recovery-technical",
+                "en/zkemail-recovery-technical"
               ]
             }
           ]
         },
-        "tr/clave-ens-subname"
+        "en/clave-ens-subname"
       ],
       "version": "TR"
     }
