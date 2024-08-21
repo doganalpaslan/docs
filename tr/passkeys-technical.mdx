@@ -1,61 +1,59 @@
 ---
-title: 'Passkey Signer '
-description: 'Clave Utilizes Passkeys for Secure Key Management, This Explainer Will Explain How Does It Work:'
+title: 'Passkey İmzacısı'
+description: "Clave, güvenli anahtar yönetimi için Passkey'leri kullanır. Bu açıklayıcı metin, bunun nasıl çalıştığını anlatacaktır"
 ---
 
-Central to the trustless nature of Web3 is Elliptic Curve Cryptography (ECC). In simple terms, ECC allows users to prove their identity without needing of middleman. It provides strong security while using shorter codes, making it ideal for Web3's decentralized platforms. One of the most evident manifestations of ECC in the Web3 environment is the 12-word mnemonic phrase often required to access a user's account. Instead of relying on the traditional username-password combo, as seen in the Web2 ecosystem, Web3 users are provided with a unique set of 12 words. These words, derived from their cryptographic keys, act as a passphrase to their digital wallets or accounts. This not only revolutionizes the way users prove ownership removing the dependency on centralized entities that was pervasive in Web2.
+Web3'ün merkezi aracılar yerine matematiğe güvenen doğasının merkezinde Eliptik Eğri Kriptografisi (ECC) yer alır. Basit bir ifadeyle, ECC, kullanıcıların kimliklerini bir aracıya ihtiyaç duymadan kanıtlamalarına olanak tanır. Daha kısa kodlar kullanarak güçlü bir güvenlik sağlar, bu da onu Web3'ün merkeziyetsiz platformları için ideal kılar. Web3 ortamında ECC'nin en belirgin tezahürlerinden biri, kullanıcının hesabına erişmek için sıklıkla gerekli olan 12 kelimelik mnemonic ifadedir. Web2 ekosisteminde görüldüğü gibi geleneksel kullanıcı adı-parola kombinasyonuna güvenmek yerine, Web3 kullanıcılarına benzersiz bir 12 kelimelik dizi sağlanır. Bu kelimeler, kriptografik anahtarlarından türetilir ve dijital cüzdanlarına veya hesaplarına bir parola olarak hizmet eder. Bu durum, kullanıcıların sahipliklerini kanıtlama şeklini devrim niteliğinde değiştirir ve Web2'de yaygın olan merkezi varlıklara bağımlılığı ortadan kaldırır.
 
-However, this innovation doesn't come without its challenges. The responsibility of safeguarding these 12 words lies solely with the user. Unlike forgetting a password in a Web2 system, where account recovery might be a click away, losing one's 12-word phrase in the Web3 ecosystem could mean permanent loss of access to one's digital assets and identity. This critical responsibility, though securing user data from centralized breaches, poses a significant barrier to mainstream adoption of Web3. It requires a paradigm shift in user behavior and understanding, as the stakes are considerably higher than misplacing a password.
+Ancak bu yenilik, zorlukları beraberinde getirmez. Bu 12 kelimeyi koruma sorumluluğu tamamen kullanıcıya aittir. Web2 sisteminde bir parolayı unutmaktan farklı olarak, burada bir hesap kurtarma işlemi bir tıklama uzakta olmayabilir; Web3 ekosisteminde 12 kelimelik ifadenin kaybedilmesi, dijital varlıklara ve kimliğe kalıcı olarak erişim kaybı anlamına gelebilir. Bu kritik sorumluluk, kullanıcı verilerini merkezi ihlallerden korurken, Web3'ün ana akım tarafından benimsenmesi önünde önemli bir engel oluşturur. Kullanıcı davranışında ve anlayışında bir paradigma değişikliği gerektirir, çünkü burada risk, bir parolanın kaybedilmesinden çok daha büyüktür.
 
-## Passkeys
-As Web3 reshapes the digital landscape, introducing decentralized and trustless operations, there's an emerging need for heightened security measures. Enter the concept of Hardware Sign, an innovative approach that promises to take digital identity verification to new heights.
+## Passkey'ler
+Web3 dijital manzarayı yeniden şekillendirirken, merkeziyetsiz ve güvenilmez işlemler sunarken, artan güvenlik önlemlerine olan ihtiyaç da ortaya çıkmaktadır. İşte bu noktada donanım imzalama kavramı devreye girer ve dijital kimlik doğrulamasını yeni bir seviyeye taşımayı vaat eder.
 
-So, what exactly is Hardware Sign? At its core, Hardware Sign is the principle of using a device's dedicated microchips, like Secure Enclaves, to prove a user's identity. Rather than relying on external servers or online platforms, the authentication process occurs right within your device. Hardware Sign's significance stems from its localized approach to identity verification. By keeping the authentication process confined within the device, it drastically reduces the risk of online breaches or middlemen interference. Furthermore, it leverages the intrinsic security features of modern devices, ensuring that even if a device is lost or stolen, the data within the Secure Enclave remains protected. In the continuously evolving world of digital security, the introduction of the Secure Enclave marks a significant step forward. But what is it, and how does it change the game, especially in the context of Web3?
+Peki, donanım imzalama nedir? Temel olarak, donanım imzalama, bir cihazın Secure Enclave gibi özel mikroçiplerini kullanarak kullanıcının kimliğini kanıtlama ilkesidir. Kimlik doğrulama işlemi, dış sunuculara veya çevrimiçi platformlara güvenmek yerine, doğrudan cihazınızın içinde gerçekleşir. Donanım imzalamanın önemi, kimlik doğrulama sürecini cihaz içinde tutarak çevrimiçi ihlaller veya aracı müdahaleleri riskini büyük ölçüde azaltmasından gelir. Ayrıca, modern cihazların yerleşik güvenlik özelliklerinden yararlanarak, bir cihaz kaybolsa veya çalınsa bile Secure Enclave içindeki verilerin korunduğundan emin olur. Dijital güvenliğin sürekli evrilen dünyasında, Secure Enclave'in tanıtımı önemli bir ilerlemeyi temsil eder. Peki bu nedir ve özellikle Web3 bağlamında oyunu nasıl değiştirir?
 
-### Understanding the Secure Enclave
+### Secure Enclave'i Anlamak
 
-The Secure Enclave is an advanced hardware feature, specifically designed to act as a protective shield around users' most sensitive data. Unlike other parts of a device, which might handle everything from app processes to notifications, the Secure Enclave is a distinct microchip, isolated from all other components of the device. This separation ensures that sensitive data, such as biometric information and cryptographic keys, are isolated from potential threats that might compromise other parts of a device.
+Secure Enclave, kullanıcıların en hassas verilerini korumak için özel olarak tasarlanmış gelişmiş bir donanım özelliğidir. Cihazın diğer bölümlerinin uygulama süreçlerinden bildirimlere kadar her şeyi yönetmesine karşın, Secure Enclave, cihazın diğer tüm bileşenlerinden izole edilmiş, ayrı bir mikroçiptir. Bu ayrım, biyometrik bilgiler ve kriptografik anahtarlar gibi hassas verilerin, cihazın diğer bölümlerine zarar verebilecek potansiyel tehditlerden izole edilmesini sağlar.
 
-Learn [more here](secure-enclave-technical)
+Daha fazla bilgi edinmek için [buraya tıklayın](secure-enclave-technical)
 
-### Accessing the Secure Enclave
+### Secure Enclave'e Erişim
 
-Another key aspect of the Secure Enclave is its fortified access mechanisms. Data stored within it can only be accessed through either a passcode or biometric authentication methods like Face ID or Touch ID. This adds an extra layer of security, making sure that even if a device falls into the wrong hands, the data within the Secure Enclave remains secure.
+Secure Enclave'in bir diğer önemli yönü ise güçlendirilmiş erişim mekanizmalarıdır. İçinde depolanan verilere yalnızca bir parola veya Face ID ya da Touch ID gibi biyometrik kimlik doğrulama yöntemleriyle erişilebilir. Bu, cihazın yanlış ellere geçmesi durumunda bile, Secure Enclave içindeki verilerin güvende kalmasını sağlayarak ek bir güvenlik katmanı ekler.
 
-### Integrating Secure Enclave into Web3
+### Secure Enclave'i Web3'e Entegre Etmek
 
-Perhaps the most groundbreaking feature of the Secure Enclave, especially in the realm of Web3, is its support for Elliptic Curve Cryptography (ECC). This means that the Secure Enclave can generate and manage cryptographic key pairs, crucial for digital transactions and identity verification in the Web3 ecosystem.
+Özellikle Web3 dünyasında Secure Enclave'in en devrim niteliğindeki özelliği, Eliptik Eğri Kriptografisini (ECC) desteklemesidir. Bu, Secure Enclave'in kriptografik anahtar çiftlerini oluşturabileceği ve yönetebileceği anlamına gelir ki bu, dijital işlemler ve Web3 ekosisteminde kimlik doğrulama için çok önemlidir.
 
-Even more impressive is the capability of the Secure Enclave to sign messages using the internally generated key, without ever allowing the extraction of the key from its confines. In practical terms, this ensures the highest level of data security, as the key never leaves the safety of the Secure Enclave, eliminating potential points of vulnerability.
+Daha da etkileyici olan şey, Secure Enclave'in dahili olarak oluşturulan anahtarı kullanarak mesajları imzalayabilme yeteneğidir, bu anahtar asla kendi sınırlarının dışına çıkmaz. Pratik anlamda, bu durum verilerin en üst düzeyde güvenliğini sağlar, çünkü anahtar asla Secure Enclave'in güvenliğinden ayrılmaz ve potansiyel güvenlik açıklarını ortadan kaldırır.
 
-For Web3 users, this has profound implications. Instead of remembering a 12-word mnemonic phrase to access their accounts — a cumbersome process for many — users can simply use their biometric data. When a user employs, say, their fingerprint via Touch ID, the Secure Enclave verifies the biometric data, signs the necessary cryptographic messages internally, and grants access. This seamless process not only enhances security but also provides an intuitive and user-friendly experience.
+Web3 kullanıcıları için bu durum derin etkiler taşır. Hesaplarına erişmek için 12 kelimelik mnemonic bir ifadeyi hatırlamak yerine — ki bu birçok kullanıcı için zahmetlidir — kullanıcılar sadece biyometrik verilerini kullanabilir. Örneğin, bir kullanıcı parmak izini Touch ID üzerinden kullanırsa, Secure Enclave biyometrik verileri doğrular, gerekli kriptografik mesajları dahili olarak imzalar ve erişim sağlar. Bu sorunsuz süreç, güvenliği artırmakla kalmaz, aynı zamanda sezgisel ve kullanıcı dostu bir deneyim sunar.
 
-## Our Key Management Approach
+## Anahtar Yönetim Yaklaşımımız
 
-At the core of our approach is the utilization of Secure Enclaves. The cryptographic key, essential for your transactions, is generated within this enclave and importantly, it never leaves its confines. This encapsulation ensures the key's security even during transaction processes.
+Yaklaşımımızın merkezinde Secure Enclave'lerin kullanımı vardır. İşlemleriniz için gerekli olan kriptografik anahtar, bu enclave içinde oluşturulur ve önemlisi, asla bu sınırların dışına çıkmaz. Bu kapsülleme, anahtarın güvenliğini işlem süreçleri sırasında bile sağlar.
 
-### The Key Creation Process
+### Anahtar Oluşturma Süreci
 
-The journey starts when a user decides to generate a cryptographic key pair. Here's how it unfolds:
+Yolculuk, bir kullanıcı kriptografik bir anahtar çifti oluşturmaya karar verdiğinde başlar. İşte süreç şöyle gelişir:
 
-1. Biometric Authentication: The user initiates the key generation process by providing biometric authentication, such as a fingerprint or facial recognition. This step ensures that only the genuine user can authorize the creation of a key pair within the Secure Enclave.
-2. Internal Key Generation: Post authentication, the Secure Enclave creates the cryptographic key pair. The essential factor to note here is that the generated key remains within the Secure Enclave, never venturing outside, ensuring its absolute security.
+1. **Biyometrik Kimlik Doğrulama:** Kullanıcı, parmak izi veya yüz tanıma gibi biyometrik kimlik doğrulama sağlayarak anahtar oluşturma sürecini başlatır. Bu adım, yalnızca gerçek kullanıcının bir anahtar çiftinin Secure Enclave içinde oluşturulmasını yetkilendirebileceğini garanti eder.
+2. **Dahili Anahtar Oluşturma:** Kimlik doğrulama sonrasında, Secure Enclave kriptografik anahtar çiftini oluşturur. Burada dikkate alınması gereken önemli faktör, oluşturulan anahtarın Secure Enclave içinde kalmasıdır, bu da onun mutlak güvenliğini sağlar.
 
-![Passkey's Technical Explainer](./images/passkeytechnical1.png)
-### The Transaction Process
+![Passkey Teknik Açıklaması](./images/passkeytechnical1.png)
 
-Once the key is securely generated, it can be used to sign messages, a fundamental step for initiating transactions in the Web3 world. The process is straightforward yet robust:
+### İşlem Süreci
 
-1. Initiating the Signing Process: When a user wishes to make a transaction, the app takes the required message and forwards a signing request to the Secure Enclave.
-2. Biometric Authentication for Signing: To confirm the signing request, the user provides biometric authentication once again. This step ensures that only the authorized user can approve the signing of a message using the stored key.
-3. Internal Message Signing: The Secure Enclave, upon receiving user authorization, signs the message with the key created inside the Secure Enclave.
-4. Ready for the Blockchain: The signed message is now in a transaction format, primed and ready to be recorded on the blockchain.
-![Passkey's Technical Explainer](./images/passkeytechnical2.png)
+Anahtar güvenli bir şekilde oluşturulduktan sonra, mesajları imzalamak için kullanılabilir, bu Web3 dünyasında işlemleri başlatmak için temel bir adımdır. Süreç basit ama güçlüdür:
 
-<Accordion title="What If The User Loses The Device?">
-  A genuine concern, but there's a silver lining. With Secure Enclave, even if your device falls into the wrong hands, accessing sensitive information is next to impossible. But how do you recover your account? We’ll be diving into our recovery approach in the [Recovery Section]("recovery").
+1. **İmzalama Sürecini Başlatmak:** Kullanıcı bir işlem yapmak istediğinde, uygulama gerekli mesajı alır ve Secure Enclave'e bir imzalama isteği gönderir.
+2. **İmzalama için Biyometrik Kimlik Doğrulama:** İmzalama isteğini onaylamak için kullanıcı tekrar biyometrik kimlik doğrulama sağlar. Bu adım, yalnızca yetkili kullanıcının depolanan anahtarı kullanarak bir mesajın imzalanmasını onaylayabileceğini garanti eder.
+3. **Dahili Mesaj İmzalama:** Secure Enclave, kullanıcı yetkilendirmesini aldıktan sonra, mesajı Secure Enclave içinde oluşturulan anahtarla imzalar.
+4. **Blokzinciri için Hazır:** İmzalanmış mesaj artık işlem formatında olup, blokzincir üzerine kaydedilmeye hazırdır.
+
+![Passkey Teknik Açıklaması](./images/passkeytechnical2.png)
+
+<Accordion title="Kullanıcı Cihazı Kaybederse Ne Olur?">
+  Gerçek bir endişe, ancak iyi bir yanı var. Secure Enclave ile, cihazınız yanlış ellere geçse bile, hassas bilgilere erişim neredeyse imkansızdır. Peki hesabınızı nasıl kurtarırsınız? Kurtarma yaklaşımımızı [Kurtarma Bölümünde]("recovery") inceleyeceğiz.
 </Accordion>
-
-
-
-

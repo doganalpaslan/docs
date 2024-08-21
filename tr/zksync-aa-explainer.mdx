@@ -1,34 +1,25 @@
 ---
-title: "ZKsync's Account Abstraction"
-description: "An explainer of ZKsync's native Account Abstraction"
+title: "ZKsync'in Hesap Soyutlama Teknolojisi"
+description: "ZKsync'in yerel Hesap Soyutlamasının Nasıl Çalıştığını Anlatan bir Metin"
 ---
-Account Abstraction has been an important dream since Ethereum's inception. It is crucial because the current account model is limited and not programmable. To overcome these limitations, Ethereum developers created Smart Contract-based accounts, also known as Smart Accounts. However, a major challenge with Smart Accounts is that they cannot initiate transactions independently. This is because Smart Contract-based accounts are considered second-class citizens and are not natively supported in Ethereum.
+Hesap Soyutlama, Ethereum'un başlangıcından beri önemli bir hayaldi. Bu önemlidir çünkü mevcut hesap modeli sınırlıdır ve programlanabilir değildir. Bu sınırlamaların üstesinden gelmek için, Ethereum geliştiricileri Akıllı Sözleşme tabanlı hesaplar, yani Akıllı Hesaplar geliştirdiler. Ancak, Akıllı Hesaplar ile ilgili büyük bir zorluk, bu hesapların bağımsız olarak işlem başlatamamasıdır. Bunun nedeni, Akıllı Sözleşme tabanlı hesapların ikinci sınıf vatandaşlar olarak kabul edilmesi ve Ethereum'da yerel olarak desteklenmemesidir.
 
-Ethereum core developers have proposed several solutions for Account Abstraction, including EIP-86, EIP-2938, EIP-3074, and EIP-7702. However, each of these proposals required changes to the Ethereum protocol, making their implementation hard. However Ethereum is currently the most economically active blockchain, hosting over $30 billion in locked assets. As such, protocol-level upgrades are rather difficult to implement and take a long time. So much so that "The Merge" could be realized as a result of a 5-year coordination. As such, this is why ERC-4337 AA proposal which does not require protocol changes gained a lot of traction. However, ERC-4337 has a drawback: It requires a lot of extra infrastructure, which makes it hard to scale at massive. And also even with ERC-4337, Smart Accounts remain second class citizens. 
+Ethereum çekirdek geliştiricileri Hesap Soyutlaması için EIP-86, EIP-2938, EIP-3074 ve EIP-7702 gibi birkaç çözüm önerdiler. Ancak, bu önerilerin her biri, Ethereum protokolünde değişiklikler gerektirdiği için uygulanmaları zor oldu. Ancak Ethereum şu anda kilitli varlıklarla 30 milyar doları aşan ekonomik olarak en aktif blok zinciridir. Bu nedenle, protokol seviyesindeki yükseltmeleri gerçekleştirmek oldukça zordur ve uzun zaman alır. Öyle ki "The Merge", 5 yıllık bir koordinasyon sonucu gerçekleştirilebildi. Bu yüzden ERC-4337 AA teklifi, protokol değişiklikleri gerektirmediği için büyük ilgi gördü. Ancak, ERC-4337'nin bir dezavantajı vardır: Bu, büyük ölçekte ölçeklendirmeyi zorlaştıran çok fazla ekstra altyapı gerektirir. Ayrıca, ERC-4337 ile bile Akıllı Hesaplar ikinci sınıf vatandaşlar olarak kalır.
 
-However, Rollups do not face issues like backward compatibility and complex governance processes. Since they are entirely new chains inheriting security from Ethereum, they do not suffer from backward compatibility problems. ZKsync, a ZK rollup on Ethereum, has developed their rollup with native Account Abstraction which is similar to ERC-4337 but natively implemented. Let's explore how it works:
+Ancak Rollup'lar, geriye dönük uyumluluk ve karmaşık yönetişim süreçleri gibi sorunlarla karşılaşmazlar. Tamamen yeni zincirler oldukları için Ethereum'dan güvenlik miras alırlar ve bu nedenle geriye dönük uyumluluk sorunlarından muzdarip olmazlar. Ethereum üzerinde bir ZK rollup olan ZKsync, yerel Hesap Soyutlama ile geliştirilmiştir ve bu, ERC-4337'ye benzer ancak yerel olarak uygulanmıştır. Şimdi nasıl çalıştığını keşfedelim:
 
+### ZKsync Era'nın Yerel Hesap Soyutlaması
+Daha önce belirtildiği gibi, zkSync, EIP 4337'ye benzer bir entegrasyona sahiptir. zkSync ayrıca işlemleri sıralamak ve Batch'e eklemek için bir Sequencer kullanan bir ZK-Rollup çözümüdür. zkSync Era'da EIP 4337 ve Starknet'te olduğu gibi iki aşama vardır. Burada, EOA ve Sözleşme hesapları aynı mempool'a işlemler gönderir. EOA ve Sözleşme hesapları için aynı mempool'u paylaşmak, Paymaster'ların EOA işlemlerini de sponsor etmelerini sağlar, bu orijinal 4337 uygulamasında yapılamaz. Bu nedenle, zkSync Era'da, EOA'nın işlemlerini sponsor eden bir Paymaster oluşturabilirsiniz. Operator (4337'deki Bundler'a benzer) işlemleri toplar, ardından bunlar EVM'de Bootloader adlı bir akıllı sözleşme aracılığıyla (4337'deki entrypoint'e benzer) yürütülür. Ne yazık ki, zkSync'de simülasyonun (zincir dışı işlem) nasıl gerçekleştiği hakkında fazla bilgi bulamadım, bu yüzden zincir üstünde neler olduğunu açıklayayım:
 
-### ZKsync Era's Native Account Abstraction
-As mentioned, zkSync has an integration similar to EIP 4337. zkSync is also a ZK-Rollup solution that uses a Sequencer to order and add transactions to the Batch. There are two stages in zkSync Era as in EIP 4337 and Starknet. Here, the EOA and Contract accounts submit transactions to the same mempool. Sharing the same mempool for EOA and Contract accounts enables the paymasters to sponsor the EOA transactions too which is not allowed to do in the original 4337 implementation. So on zkSync Era, you can create a paymaster that sponsors the EOA’s transactions. The Operator (similar to the Bundler in 4337) collects transactions, which then are executed in the EVM via a smart contract called Bootloader (similar to the entrypoint in 4337). Unfortunately, I couldn’t find much information about how the simulation (the off-chain process) is happening on the zkSync, so here is the explainer of what is happening on-chain:
+![ZKsync'in Hesap Soyutlama](./images/zksyncaa1.png)
 
-![ZKsync's Account Abstraction](./images/zksyncaa1.png)
+**1. İşlemin geçerliliğinin kontrol edildiği doğrulama aşaması:**
 
-**1. Validation stage where the transaction validity is checked:**
+İlk olarak, nonce değerinin geçerliliği kontrol edilir. (Not: zkSync'deki nonce entegrasyonu belirli bir sıraya dayalı olduğundan, bir cüzdan aynı anda yalnızca bir işlem başlatabilir. Ekip bu durumu gelecekte güncellemeyi planlamaktadır.) Operator ilk olarak validateTransaction işlevini çağırır. Bu işlev işlemin geçerliliğini kontrol eder ve eğer geçerliyse bir sonraki aşamaya geçer. Bir sonraki aşamada, işlemin ücreti ödenir. Ücretin Paymaster'dan mı yoksa doğrudan kullanıcının cüzdanından mı alınacağını kontrol etmek için üç farklı işlev yürütülür. Doğrulamanın son aşamasında, Bootloader işlemi çağırmak için gerekli ücreti aldığını kontrol eder.
 
-First, the validity of nonce value is checked. (Note: Since nonce integration on zkSync is based on a deterministic order, a wallet can only initiate one transaction at a time. The team is planning to update this in the future.) Operator first calls the validateTransaction function. This function checks the transaction validity, and in case it is valid, it moves to the next stage. In the next stage, the fee of the transaction is paid. There are three different functions that are executed to check whether payment can be received from the Paymaster or directly from the user's wallet. In the final stage of the validation, Bootloader checks if it has received the fee necessary for calling the transaction. 
+**2. İşlemin yürütülme aşaması:**
 
-**2. Transaction execution stage:**
+Bu aşama iki kısımdan oluşur. İlk olarak executeTransaction işlevi çağrılır. Daha sonra, eğer Paymaster kullanıldıysa PostOp işlevi çağrılır. Bu işlev, Paymaster'ın ERC20 tokenleri kullanarak ücret ödemesini kolaylaştırmak için tasarlanmıştır.
 
-This stage consists of two parts. First, the executeTransaction function is called. Then, if Paymaster is used, the PostOp function is called. This is a function to make it easier for Paymaster to pay fees using ERC20 tokens
-
-![ZKsync's Account Abstraction](./images/zksyncaa2.png)
-
-
-
-
-
-
-
-
+![ZKsync'in Hesap Soyutlama](./images/zksyncaa2.png)
 

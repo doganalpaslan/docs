@@ -1,66 +1,63 @@
 ---
-title: 'Troubleshooting'
-description: 'Having trouble with your Clave account? Here is a guide that includes common problems you might face and solutions'
+title: 'Clave Kullanırken karşılaşabileceğiniz Potansiyel Sorunlar ve Çözümleri'
+description: "Clave hesabınızla ilgili sorun mu yaşıyorsunuz? İşte karşılaşabileceğiniz yaygın problemleri ve çözümlerini içeren bir rehber:"
 ---
 
 
+**1. Hesap oluşturamıyorum.**
 
+Android telefon kullanıyorsanız, bazı Android 14 cihazları, Samsung Ultra modelleri, OnePlus gibi telefonlarda Passkey ile ilgili bazı hatalar olduğunu unutmayın. Passkey oldukça yeni bir teknoloji olduğu için tüm Android cihazlarla optimize edilmemiş olabilir.
 
-**1. I cannot create an account.**
+Öncelikle, telefonunuzun Passkey'i destekleyip desteklemediğini kontrol edin. Bunu yapmak için:
 
-If you have an Android phone, please note that there are some bugs with Android phones such as some Android 14 devices, Samsung Ultra models, OnePlus, etc. Since Passkey is a pretty new technology, it might not be optimized for all Android devices.
+1. **[webauthn.io](https://webauthn.io)** adresine gidin.
+2. **Girdi kutusuna herhangi bir metin girin** ve "Register" butonuna tıklayın.
+3. **Bir passkey oluşturulduğunu görmelisiniz.** Aşağıdaki resimlerde görüldüğü gibi (sol: Android, sağ: iPhone):
 
-First, check if your phone supports Passkey. To do so:
+![Sorun 1](./images/trouble1.png)
 
-1. Go to **[webauthn.io](https://webauthn.io)**
-2. **Enter any text into the input box** on the input box and click "Register"
-3. **You should see that a passkey is generated.** See images below (left: Android, right: iPhone):
+**2. iPhone kullanıyorum ve hesap oluşturma ile ilgili sorun yaşıyorum.**
 
-![Problem 1](./images/trouble1.png)
+Öncelikle aşağıdaki ayarları kontrol edin. Sorun devam ederse, Clave Discord'a katılın ve bir Destek bileti açın.
 
-**2. I’m using an iPhone and have a problem creating my account.**
+1. **iOS sürümünü kontrol edin.** Passkey'leri etkinleştirmek için yazılım sürümünüzün iOS 16 veya macOS 13 veya daha yüksek olması gerekmektedir.
 
-Please check the following settings first. If the problem persists, join Clave Discord and open a Support ticket.
+    iOS sürümünü kontrol etmek için **Ayarlar → Genel → Hakkında** yolunu izleyin. iOS sürümünüz iOS 16'dan eskiyse, **Ayarlar → Genel → Yazılım Güncelleme** altında güncelleyin.
 
-1. **Check the iOS version.** To activate Passkeys, your software version should be iOS 16 or macOS 13 or higher.
+2. **iCloud Parolalar & Anahtar Zinciri Senkronizasyonunu açın.**
 
-    Go to **Settings → General → About** to check the iOS version. If your iOS version is older than iOS 16, update it under **Settings → General → Software Update**.
+    **Ayarlar → Apple ID → iCloud → Parolalar ve Anahtar Zinciri** yolunu izleyin ve "Bu iPhone'u Senkronize Et" seçeneğini etkinleştirin. 
 
-2. **Turn on iCloud Passwords & Keychain Sync.**
+    Senkronizasyon zaten etkin olsa bile, bazen devre dışı bırakıp yeniden etkinleştirmek gerekebilir.
 
-    Go to **Settings → Apple ID → iCloud → Passwords and Keychain** and enable “Sync this iPhone”. 
+3. **Parolalar ve Passkey'ler Otomatik Doldurmayı açın.**
 
-    Although the sync is already enabled, sometimes disabling and re-enabling is required to activate it.
+    **Ayarlar → Parolalar → Parola Seçenekleri** yolunu izleyin.
 
-3. **Turn on AutoFill Passwords and Passkeys.**
+    Parolalar ve Passkey'ler Otomatik Doldurmayı etkinleştirin.
 
-    Go to **Settings → Passwords → Password Options**
+    "Parolalar ve Passkey'ler Kullan" bölümünde iCloud Anahtar Zinciri'ni etkinleştirin.
 
-    Enable AutoFill Passwords and Passkeys.
+![Sorun 2](./images/trouble2.png)
 
-    Enable iCloud Keychain in "Use Passwords and Passkeys From" section.
+**3. Android Telefon kullanıyorum ve hesap oluşturma ile ilgili sorun yaşıyorum.**
 
-![Problem 2](./images/trouble2.png)
+Android telefonlar için Passkey ayarlarını yönetmenin tek bir yolu yoktur. Ancak, genel olarak şu yöntemleri izleyebilirsiniz. Bu yöntemler sizin için çalışmıyorsa, cihaz ayarlarında "Passkey" araması yapabilirsiniz. Ayrıca Android cihazlar için [rehberlerimize](android-users) göz atabilirsiniz.
 
-**3. I’m using an Android Phone and have a problem creating my account.**
+**Birinci Yöntem** (Samsung ile Çalışır)
 
-For Android phones, there is no single way to manage Passkey settings. However, in general, you can follow these methods. If these are not working for you, you can search “Passkey” in your device settings. You can also take a look at [our guides](android-users) for android devices 
+1. **Ayarlar → Genel Yönetim → Parolalar Passkey'ler ve Otomatik Doldurma** yolunu izleyin ve Google otomatik doldurma seçeneğini etkinleştirin.
+2. Passkey sağlayıcınıza (örneğin, Samsung Pass veya Google) bağlı olarak, **Tercih Edilen Hizmeti değiştirebilirsiniz.** Clave ile Google hizmetlerini kullanmanızı öneririz.
+![Google Parola Yöneticisi](./images/googlepassword1.png)
 
-**First Method** (Works with Samsung)
+**İkinci Yöntem** (Xiaomi ile Çalışır)
 
-1. Go to **Settings → General Management → Passwords Passkeys and Autofill** and enable Google autofill option.
-2. Depending on your passkey provider (i.e., Samsung Pass or Google), **you can change Preferred Service.** We suggest using Google services with Clave.
-![Google Password Manager](./images/googlepassword1.png)
+1. **Ayarlar → (Hesaplar) → Google → Parola Yöneticisi** yolunu izleyin ve "Google ile Otomatik Doldurmayı Kullan" seçeneğini etkinleştirin.
 
-**Second Method** (Works with Xiaomi)
+**4. Hesabımı oluşturdum ama işlemlerim her zaman başarısız oluyor.**
 
-1. Go to **Settings → (Accounts) → Google → Password Manager** and enable "Use Autofill with Google".
+Clave'nin en son sürümüne sahip olduğunuzdan emin olun. Kontrol etmek için [getclave.io/download](https://getclave.io/download) adresini ziyaret edin.
 
+**5. Telefonumu kaybettim/değiştirdim. Cüzdanımı nasıl kurtarabilirim?**
 
-**4. I set up my account but my transactions always fail.**
-
-Make sure that you have the latest version of Clave. Visit [getclave.io/download](https://getclave.io/download) to check it.
-
-**5. I lost/changed my phone. How can I recover my wallet?**
-
-See our [Recovery](how-to-recover-clave) page. If you cannot start the recovery process, contact us on Discord.
+[Recovery](how-to-recover-clave) sayfamıza bakın. Kurtarma işlemini başlatamıyorsanız, Discord üzerinden bizimle iletişime geçin.

@@ -1,33 +1,26 @@
 ---
-title: 'Introduction'
-description: "A General Overview of Clave's Components."
+title: 'Giriş'
+description: "Clave'in Bileşenlerine Genel Bir Bakış."
 ---
 
-Clave is a smart contract-based, mobile-first wallet (a.k.a. Smart Wallet) that operates on ZKsync and leverages ZKsync’s native account abstraction and hardware elements to provide the best user experience with the best security available on modern devices. 
+Clave, ZKsync üzerinde çalışan, akıllı sözleşme tabanlı, mobil öncelikli bir cüzdandır (Smart Wallet olarak da bilinir). ZKsync'in yerel hesap soyutlama (Account Abstraction) ve donanım öğelerini kullanarak modern cihazlarda en iyi kullanıcı deneyimini ve güvenliği sağlar.
 
-Clave consists of three parts: 
+Clave üç bölümden oluşur:
 
-1) User Device, Clave Application 
+1) Kullanıcı Cihazı ve Clave Uygulaması
 
-2) Clave Backend 
+2) Clave Backend
 
-3) Onchain part - Smart Contracts. 
+3) Zincir Üstü Bileşenler - Akıllı Sözleşmeler.
 
-### 1) Clave Application and User Device
+### 1) Clave Uygulaması ve Kullanıcı Cihazı
 
-Clave is a mobile wallet that can be downloaded to Android and iOS devices. Clave utilizes Webauthn standard (passkeys) and provides hardware-level security. Webauthn is a new authentication method designed to eliminate the need for passwords and utilizes public key cryptography. Clave is one of the first teams to implement Passkeys into Smart Accounts. You can find more information in the passkeys section: 
+Clave, Android ve iOS cihazlara indirilebilen bir mobil cüzdandır. Clave, Webauthn standardını (passkeys) kullanır ve donanım seviyesinde güvenlik sağlar. Webauthn, şifre gereksinimini ortadan kaldırmak için tasarlanmış ve genel anahtar şifrelemesini kullanan yeni bir kimlik doğrulama yöntemidir. Clave, Passkeys'i Akıllı Hesaplara (Smart Accounts) entegre eden ilk ekiplerden biridir. Daha fazla bilgiyi Passkeys bölümünde bulabilirsiniz:
 
 ### 2) Clave Gateway (Backend)
 
-Clave has a backend that indexes blockchain data and shows users to best up to data from onchain. It also listens to users’ transactions and shows users the transaction status. It is designed to have no latency (submilliseconds) and serve seamless UX for the users. 
+Clave, blockchain verilerini indeksleyen ve kullanıcılara zincir üstünden en güncel verileri gösteren bir backend'e sahiptir. Ayrıca, kullanıcıların işlemlerini dinler ve onlara işlem durumunu gösterir. Minimum gecikme (milisaniyeden az) ile tasarlanmış olup, kullanıcılara kusursuz bir kullanıcı deneyimi sunmayı hedefler.
 
- 
+### 3) Zincir Üstü Akıllı Sözleşmeler
 
-### 3) Onchain Smart Contracts
-
-Clave accounts are self-custodial and smart contract based, which means they are fully programmable and modular. Clave Smart Contracts are controlled by the users and secure the funds. Clave Contracts are open-sourced and you can find more information [on our github:](https://github.com/getclave/clave-contracts)
-
-
-
-
-
+Clave hesapları kendi kendine saklamalıdır (self-custodial) ve akıllı sözleşme tabanlıdır, bu da onların tamamen programlanabilir ve modüler olduğu anlamına gelir. Clave Akıllı Sözleşmeleri kullanıcılar tarafından kontrol edilir ve fonları güvence altına alır. Clave Sözleşmeleri açık kaynaklıdır ve daha fazla bilgiyi [GitHub sayfamızda](https://github.com/getclave/clave-contracts) bulabilirsiniz.

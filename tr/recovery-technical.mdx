@@ -1,42 +1,42 @@
 ---
-title: 'Recovery Methods at Clave'
-description: "If a User Loses All of Their Devices,Their Keys are Not Accessible, Given That the Key Within The Secure Enclave is non-extractable. To Address This Problem, Clave Has Developed a Recovery Mechanism."
+title: 'Clave'deki Kurtarma Yöntemleri'
+description: "Bir Kullanıcı Tüm Cihazlarını Kaybederse, Güvenli Bölge İçindeki Anahtar Çıkarılamaz Olduğu İçin Anahtarlara Erişim Sağlanamaz. Bu Sorunu Çözmek İçin Clave, Bir Kurtarma Mekanizması Geliştirmiştir."
 ---
-An ideal recovery mechanism is an indispensable aspect of digital asset security, especially when utilizing advanced technologies like Passkey Signing. The perfect recovery solution should be user-friendly, resistant to censorship, cheap, efficient, and devoid of introducing any additional trust assumptions.
+İdeal bir kurtarma mekanizması, Passkey İmzalama gibi ileri teknolojiler kullanılırken dijital varlık güvenliğinin vazgeçilmez bir parçasıdır. Mükemmel bir kurtarma çözümü, kullanıcı dostu, sansüre dirençli, ekonomik, verimli olmalı ve ek güven unsurları gerektirmemelidir.
 
-Recognizing the critical importance of a solid recovery solution, Clave has implemented a comprehensive recovery mechanism at Clave, which includes a 48-hour time lock feature designed to reduce the risk from malicious actors.
+Clave, sağlam bir kurtarma çözümünün kritik önemini kabul ederek, kötü niyetli aktörlerden kaynaklanan riski azaltmak için 48 saatlik bir kilit özelliğini içeren kapsamlı bir kurtarma mekanizması uygulamıştır.
 
-### Characteristics of an Ideal Recovery Mechanism:
-- **User-Friendly:** The mechanism should be intuitive and accessible, ensuring that users, regardless of their technical proficiency, can navigate through the recovery process with ease and precision.
+### İdeal Bir Kurtarma Mekanizmasının Özellikleri:
+- **Kullanıcı Dostu:** Mekanizma, teknik bilgisi ne olursa olsun, kullanıcıların kurtarma sürecini kolaylıkla ve doğrulukla yönlendirebilmelerini sağlayacak şekilde sezgisel ve erişilebilir olmalıdır.
 
-- **Censorship-Resistant:** It should be impervious to external manipulations and interferences, enabling users to have uninterrupted access to their assets in varied geopolitical landscapes.
+- **Sansüre Dirençli:** Mekanizma, dış müdahalelere ve engellemelere karşı dayanıklı olmalı, kullanıcılara çeşitli coğrafi koşullarda kesintisiz erişim sağlamalıdır.
 
-- **Economically Viable:** The cost implications of utilizing the recovery mechanism should be minimal, allowing users from different economic backgrounds to benefit from the service.
+- **Ekonomik Olarak Uygun:** Kurtarma mekanizmasının kullanım maliyetleri minimal olmalı, farklı ekonomik geçmişlere sahip kullanıcıların bu hizmetten faydalanabilmelerini sağlamalıdır.
 
-- **Efficient:** The process should be streamlined and prompt, ensuring users can regain access to their assets without undue delays or complications.
+- **Verimli:** Süreç, kullanıcıların varlıklarına gereksiz gecikmeler veya komplikasyonlar olmadan yeniden erişim sağlamalarını garanti eden, hızlı ve sade olmalıdır.
 
-- **No Additional Trust Assumptions:** It is crucial that the mechanism does not necessitate the introduction of any new trust assumptions, maintaining the integrity and security of the user's assets.
-### The 48-Hour Time Lock:
-The incorporation of a 48-hour time lock in both recovery mechanisms is a deliberate measure designed to prevent potential unauthorized access and malicious activities. After beginning the recovery process, the user receives a notification from the Clave app and/or email and is given 48 hours to cancel the recovery. This provides a recovery mechanism without introducing new trust assumptions, as the user maintains complete control over their assets.
+- **Ek Güven Unsurları Gerekmez:** Mekanizmanın herhangi bir yeni güven unsuru gerektirmemesi önemlidir, böylece kullanıcının varlıklarının bütünlüğü ve güvenliği korunur.
 
-## First Recovery Option: Native Recovery with Passkeys
-Passkeys are designed as a secure and user-friendly alternative to traditional passwords, utilizing a technology that greatly eliminates the risk of phishing. This system involves the creation of a unique pair of cryptographic keys for each account: a public key, which is openly stored on the server, and a private key, which remains confidential and is securely held on the user's device.
+### 48 Saatlik Kilit:
+Her iki kurtarma mekanizmasına da dahil edilen 48 saatlik kilit, yetkisiz erişim ve kötü niyetli faaliyetlerden korunmayı sağlamak amacıyla tasarlanmış bir önlemdir. Kurtarma süreci başlatıldıktan sonra kullanıcı, Clave uygulamasından ve/veya e-posta yoluyla bir bildirim alır ve kurtarmayı iptal etmek için 48 saat süre verilir. Bu, kullanıcıların varlıkları üzerinde tam kontrol sahibi olmalarını sağlayarak, yeni güven unsurları eklemeden bir kurtarma mekanizması sunar.
 
-When a user creates an account with passkeys, the encrypted version of the private key is synced via the Cloud. This means that if users lose their device, they can recover the key from other devices if the device is selected as a "trusted device". The Passkeys are encrypted via Secure Enclave (biometrics), and the encrypted version is shared via Cloud. This means that even if the Cloud gets compromised, no one can access it.
+## Birinci Kurtarma Seçeneği: Passkey ile Yerel Kurtarma
+Passkey'ler, geleneksel parolalara güvenli ve kullanıcı dostu bir alternatif olarak tasarlanmıştır ve oltalama riskini büyük ölçüde ortadan kaldıran bir teknoloji kullanır. Bu sistem, her hesap için benzersiz bir çift kriptografik anahtar oluşturulmasını içerir: bir tanesi genel anahtar olup sunucuda açıkça saklanır, diğeri ise gizli tutulur ve kullanıcının cihazında güvenle saklanır.
 
-This recovery method native to Passkeys has a flaw: if you lose all devices, you cannot recover your account. Thus, we've implemented Social Recovery.
+Bir kullanıcı passkey'lerle bir hesap oluşturduğunda, özel anahtarın şifrelenmiş versiyonu bulut aracılığıyla senkronize edilir. Bu, kullanıcılar cihazlarını kaybederse, diğer cihazlardan anahtarı geri alabilecekleri anlamına gelir, eğer cihaz "güvenilir cihaz" olarak seçilirse. Passkey'ler, Güvenli Bölge (biyometri) aracılığıyla şifrelenir ve şifrelenmiş versiyon bulut aracılığıyla paylaşılır. Bu, bulutun bile ihlal edilmesi durumunda kimsenin ona erişemeyeceği anlamına gelir.
 
-## Second Recovery Option: Social Recovery
-Instead of using iCloud or Google Drive, users can pick family or friends to help them get their account back if needed. Users can do this by giving the friend’s or family member’s Clave nickname or address. After picking a guardian, there’s a 48-hour wait time during which users can change their mind and stop the process if they want to.
+Passkey'lere özgü bu yerel kurtarma yöntemi bir kusura sahiptir: tüm cihazlarınızı kaybederseniz hesabınızı kurtaramazsınız. Bu nedenle, Sosyal Kurtarma'yı uygulamış bulunmaktayız.
 
-To start getting their account back using a new device, users need to give their helper’s Clave nickname or address. Clave will then make a link that users send to their helpers. Like when picking a guardian, there’s a 48-hour wait time during the recovery process, giving users a chance to stop it from the original device if needed.
+## İkinci Kurtarma Seçeneği: Sosyal Kurtarma
+iCloud veya Google Drive yerine, kullanıcılar gerektiğinde hesaplarını geri almak için ailelerini veya arkadaşlarını seçebilirler. Kullanıcılar, arkadaşlarının veya aile üyelerinin Clave takma adını veya adresini vererek bunu yapabilirler. Bir koruyucu seçtikten sonra, kullanıcılar isterlerse işlemi durdurmak için 48 saatlik bir bekleme süresi vardır.
 
-This way, called Social Recovery, is all about giving users more choices to keep their accounts safe, mixing security with the help of friends or family, and making it all easy to manage.
+Yeni bir cihaz kullanarak hesaplarını geri almaya başlamak için kullanıcılar, yardımcılarının Clave takma adını veya adresini vermelidir. Clave, kullanıcıların yardımcılarına göndereceği bir bağlantı oluşturacaktır. Bir koruyucu seçmek gibi, kurtarma sürecinde de 48 saatlik bir bekleme süresi vardır, bu da kullanıcılara gerekirse orijinal cihazdan durdurma şansı verir.
 
-![Social Recovery Mechanism Clave](./images/recoverypic1.png)
+Sosyal Kurtarma olarak adlandırılan bu yöntem, kullanıcıların hesaplarını güvende tutmak için daha fazla seçenek sunmayı, güvenliği arkadaş veya aile yardımıyla birleştirmeyi ve tüm süreci yönetmeyi kolaylaştırmayı amaçlar.
 
+![Sosyal Kurtarma Mekanizması Clave](./images/recoverypic1.png)
 
-## Third Recovery Option: Universal Recovery with ZK-Email
-Social Recovery is a powerful tool, but it comes with a limitation: the Guardian must have an on-chain address. To overcome this, Clave has introduced a new recovery method called Universal Recovery, which allows anyone to become a Clave Guardian using their email accounts.
+## Üçüncü Kurtarma Seçeneği: ZK-Email ile Evrensel Kurtarma
+Sosyal Kurtarma güçlü bir araçtır, ancak bir sınırlaması vardır: Koruyucu'nun bir zincir üstü adresine sahip olması gerekir. Bunu aşmak için Clave, herkesin e-posta hesaplarını kullanarak bir Clave Koruyucusu olmasını sağlayan yeni bir kurtarma yöntemi olan Evrensel Kurtarma'yı tanıttı.
 
-Universal Recovery leverages ZK Email to verify DKIM signatures, ensuring a secure and trustless operation. This innovative approach expands the accessibility of guardianship without compromising security. For more technical details, refer to the [next section]("zkemail-recovery-technical").
+Evrensel Kurtarma, DKIM imzalarını doğrulamak için ZK Email'i kullanır ve güvenli ve güven unsurlarını ortadan kaldıran bir operasyon sağlar. Bu yenilikçi yaklaşım, güvenliği tehlikeye atmadan koruyuculuk erişimini genişletir. Daha teknik detaylar için [sonraki bölüme](zkemail-recovery-technical) bakabilirsiniz.
