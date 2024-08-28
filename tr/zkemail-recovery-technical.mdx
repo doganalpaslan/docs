@@ -6,17 +6,17 @@ description: "Evrensel Kurtarma, herhangi bir kişinin yalnızca bir e-posta hes
 
 
 ![ZK Kurtarma Açıklayıcı Görsel](./images/recoverypic4.png)
-Akıllı sözleşme altyapımız için bir kurtarma modülü geliştiriyoruz. Bu mekanizma, sorunsuz bir başlangıç için passkey'leri kullanır ve hesap kurtarma için Evrensel Kurtarma'yı entegre eder. Bu sistemin önemli bir özelliği, kullanıcıların herhangi bir arkadaşlarını, e-posta adresi kullanarak güvenilir kişi olarak atamasına izin vererek, Clave cüzdanımızda erişilebilir ve güvenli hesap kurtarma seçeneklerinin kapsamını genişletmesidir.
+Akıllı sözleşme altyapımız için bir kurtarma modülü geliştirdik. Bu mekanizma, sorunsuz bir başlangıç için passkey'leri kullanır ve hesap kurtarma için Evrensel Kurtarma'yı entegre eder. Bu sistemin önemli bir özelliği, kullanıcıların herhangi bir arkadaşlarını, e-posta adresi kullanarak güvenilir kişi olarak atamasına izin vererek, Clave cüzdanımızda erişilebilir ve güvenli hesap kurtarma seçeneklerinin kapsamını genişletmesidir.
 
 Evrensel Kurtarma'nın temeli, belirli bir e-posta adresini, aracıdan gelen bir e-postayı yanıtlayarak kurtarmayı başlatmak için yetkilendirmektir. Bunu mümkün kılmak için Clave Modül Sözleşmeleri yapısını takip ederek Evrensel Kurtarma Modülünü geliştirdik. Kısacası, bu model kullanıcının güvenilir kişi olarak eklediği e-postaları saklar ve kurtarmanın, güvenilir kişi tarafından gönderilen e-postaları kullanarak aracı tarafından oluşturulan sıfır bilgi kanıtını kontrol ederek başlatılıp yürütülebileceğini sağlar. Kullanıcı, yalnızca güvenilir kişinin e-posta adresini yazarak güvenilir kişiyi ekleyebilir. Bundan sonra kurtarma ekleme süreci tamamlanır. Kullanıcı, herhangi bir nedenle hesaba erişimini kaybederse, hesabı yeniden kurtarmak için gerekli olan tek şey, güvenilir kişinin yeni genel anahtarla birlikte aracıya bir e-posta yanıtlamasıdır. Aracı, gelen e-posta sayesinde bir kanıt oluşturabilir ve bu kanıtla startRecovery işlevini tetikleyebilir. Bu şekilde, sözleşmenin yönetilmesine izin veren genel anahtar değiştirilir ve kullanıcı hesabın kontrolünü yeniden kazanır. Peki ZK-Email nasıl çalışır?
 
 ![ZK Kurtarma Açıklayıcı Görsel](./images/recoverypic5.png)
 
-## ZK-Email ile Web2 ve Web3 Arasında Güvensiz Bir Köprü Tanıtımı
+## ZK-Email ile Web2 ve Web3 Arasında Matematik Temelli Bir Köprü Tanıtımı
 
 **E-posta Protokolleri Nasıl Çalışır?**
 
-E-posta protokolleri, bütünlük güvencesi için DKIM kullanır. Bu kimlik doğrulama yöntemi, e-posta sahteciliğini önler. DKIM, RSA anahtar çifti kullanır, bu anahtar çifti Web3 anahtar algoritmalarına benzerdir ancak farklıdır. E-posta gönderenin sunucusu, her e-posta için benzersiz bir dijital imza oluşturmak için özel bir anahtar kullanır ve bu imza e-posta başlığına eklenir. Alıcı sunucusu, DNS kayıtlarında bulunan gönderenin genel anahtarını kullanarak bu imzayı doğrular. Eşleşen bir imza, e-postanın doğruluğunu ve bütünlüğünü teyit eder, böylece e-posta güvenliğini artırır.
+E-posta protokolleri, maillerin doğruluğunu sağlayabilmek için DKIM kullanır. Bu kimlik doğrulama yöntemi, e-posta sahteciliğini önler. DKIM, RSA anahtar algoritmasını kullanır, bu anahtar çifti Web3 anahtar algoritmalarına benzerdir ancak algoritmanın temeli farklıdır.. E-posta gönderenin sunucusu, her e-posta için benzersiz bir dijital imza oluşturmak için özel bir anahtar kullanır ve bu imza e-posta başlığına eklenir. Alıcı sunucusu, DNS kayıtlarında bulunan gönderenin genel anahtarını kullanarak bu imzayı doğrular. Eşleşen bir imza, e-postanın doğruluğunu ve bütünlüğünü teyit eder, böylece e-posta güvenliğini artırır.
 
 Bunu etkinleştirmek için her e-postada şu bilgiler bulunur:
 
@@ -42,5 +42,5 @@ ZK-Email protokolü ile neler olup bittiğini basitçe özetleyelim:
 
 4. Bu ZK kanıtı, blok zincirinde doğrulanır ve bu e-posta tabanlı hesap kimliğinin kullanılabilirliği sağlanır.
 
-Not: Clave'nin ZK-Email sözleşmeleri hala denetim altında ve henüz açık kaynaklı **değil**
+Not: Clave'nin ZK-Email sözleşmeleri hala denetim altında ve **henüz** açık kaynaklı değil
 
