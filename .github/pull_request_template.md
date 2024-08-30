@@ -16,6 +16,6 @@
 -   [ ] I am updating an existing language
 -   [ ] I have read the [contribution guidelines](https://docs.getclave.io/en/how-to-contribute-to-clave) and followed the rules accordingly
 
-### Locale details
+### Language details
 
 -   **Language name:** `LANGUAGE`
